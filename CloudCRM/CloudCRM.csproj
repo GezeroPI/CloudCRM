@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\dist\js\" />
+    <Compile Remove="wwwroot\dist\js\**" />
+    <Content Remove="wwwroot\dist\js\**" />
+    <EmbeddedResource Remove="wwwroot\dist\js\**" />
+    <None Remove="wwwroot\dist\js\**" />
   </ItemGroup>
 
   <ItemGroup>
