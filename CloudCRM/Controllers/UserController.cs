@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CloudCRM.Models;
 using CloudCRM.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -12,14 +13,20 @@ namespace CloudCRM.Controllers
     [Authorize]
     public class UserController : Controller
     {
-        private UserManager<IdentityUser> userManager;
-        private SignInManager<IdentityUser> signInManager;
+        private UserManager<ApplicationUser> userManager;
+        private SignInManager<ApplicationUser> signInManager;
 
-        public UserController(UserManager<IdentityUser> userMgr,
-                SignInManager<IdentityUser> signInMgr)
+        public UserController(UserManager<ApplicationUser> userMgr,
+                SignInManager<ApplicationUser> signInMgr)
         {
             userManager = userMgr;
             signInManager = signInMgr;
+        }
+
+        [AllowAnonymous]
+        public ViewResult Login()
+        {
+                return View("Login", new LoginModel());
         }
 
         [HttpPost]
@@ -29,7 +36,7 @@ namespace CloudCRM.Controllers
         {
             if (ModelState.IsValid)
             {
-                IdentityUser user = await userManager.FindByNameAsync(loginModel.UserName);
+                ApplicationUser user = await userManager.FindByNameAsync(loginModel.UserName);
 
                 if (user != null)
                 {
@@ -37,7 +44,7 @@ namespace CloudCRM.Controllers
                     if ((await signInManager.PasswordSignInAsync(user,
                             loginModel.Password, false, false)).Succeeded)
                     {
-                        return Redirect(loginModel?.ReturnUrl ?? "/Dashboard");
+                        return Redirect(loginModel?.ReturnUrl ?? "/Home");
                     }
                 }
             }

@@ -1,10 +1,11 @@
 ﻿@model LoginModel
 @{
     ViewData["Title"] = "Login";
+    Layout = "_Login";
 }
 <div class="text-danger" asp-validation-summary="All"></div>
 
-<form asp-action="Login" asp-controller="Account" method="post">
+<form asp-action="Login" asp-controller="User" method="post">
     <input type="hidden" asp-for="ReturnUrl" />
     <div class="form-group">
         <label asp-for="UserName"></label>
@@ -18,3 +19,4 @@
     </div>
     <button style="margin:auto;display:block" class="btn btn-success" type="submit">Log In</button>
 </form>
+

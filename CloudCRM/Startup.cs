@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CloudCRM.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -42,9 +43,22 @@ namespace CloudCRM
                 //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 //options.Lockout.MaxFailedAccessAttempts = 4;
                 //options.Lockout.AllowedForNewUsers = true;
+                
             })
                .AddEntityFrameworkStores<AppDbContext>()
                .AddDefaultTokenProviders();
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.AccessDeniedPath = "/User/AccessDenied";
+                options.Cookie.Name = "CloudCRM";
+                options.Cookie.HttpOnly = true;
+                options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+                options.LoginPath = "/User/Login";
+                // ReturnUrlParameter requires `using Microsoft.AspNetCore.Authentication.Cookies;`
+                options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+                options.SlidingExpiration = true;
+            });
 
             // services.AddTransient<IPerson, EFPersonRepository>();
 
