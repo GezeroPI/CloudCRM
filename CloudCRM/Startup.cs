@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using CloudCRM.Models;
@@ -8,9 +9,12 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using MySql.Data.EntityFrameworkCore;
 
 namespace CloudCRM
@@ -43,7 +47,7 @@ namespace CloudCRM
                 //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 //options.Lockout.MaxFailedAccessAttempts = 4;
                 //options.Lockout.AllowedForNewUsers = true;
-                
+
             })
                .AddEntityFrameworkStores<AppDbContext>()
                .AddDefaultTokenProviders();
@@ -62,13 +66,35 @@ namespace CloudCRM
 
             // services.AddTransient<IPerson, EFPersonRepository>();
 
-            services.AddMvc();
+            services.AddApplicationInsightsTelemetry(Configuration);
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                var supportedCultures = new[]
+                {
+                new CultureInfo("en-US"),
+                new CultureInfo("gr-EL")
+        };
+
+                options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");
+                options.SupportedCultures = supportedCultures;
+                options.SupportedUICultures = supportedCultures;
+            });
+
+            services.AddMvc()
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
+                .AddDataAnnotationsLocalization();
+
             services.AddMemoryCache();
             services.AddSession();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            var localizationOption = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(localizationOption.Value);
+
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();

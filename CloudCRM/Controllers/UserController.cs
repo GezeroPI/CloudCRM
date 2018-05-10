@@ -7,6 +7,7 @@ using CloudCRM.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
 
 namespace CloudCRM.Controllers
 {
@@ -15,12 +16,14 @@ namespace CloudCRM.Controllers
     {
         private UserManager<ApplicationUser> userManager;
         private SignInManager<ApplicationUser> signInManager;
-
+        private readonly IStringLocalizer<UserController> _localizer;
+        
         public UserController(UserManager<ApplicationUser> userMgr,
-                SignInManager<ApplicationUser> signInMgr)
+                SignInManager<ApplicationUser> signInMgr, IStringLocalizer<UserController> localizer)
         {
             userManager = userMgr;
             signInManager = signInMgr;
+            _localizer = localizer;
         }
 
         [AllowAnonymous]

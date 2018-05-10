@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="ProjectNow.gr">
     <title>@ViewData["Title"] Cloud CRM - ProjectNow</title>
-    
+
 </head>
 <body class="bg-dark">
     <div class="container">
+        <img src="~/images/LogoCloudWhite.png" alt="Cloud CRM" style="display: block;margin:auto;margin-top:20px;" />
         <div class="card card-login mx-auto mt-5">
             <div class="card-header">Login</div>
             <div class="card-body">
@@ -18,8 +19,8 @@
                 @RenderBody()
 
                 <div class="text-center">
-                    <a class="d-block small mt-3" href="register.html">Register an Account</a>
-                    <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+                    <a class="d-block small mt-3" asp-action="Register" asp-controller="User">Register an Account</a>
+                    <a class="d-block small" asp-action="ForgotPassword" asp-controller="User">Forgot Password?</a>
                 </div>
             </div>
         </div>
@@ -31,6 +32,6 @@
         <script src="~/dist/main.js" asp-append-version="true"></script>
     </environment>
     <!-- Custom scripts for all pages-->
-    <script src="./js/sb-admin.min.js"></script>
+    <script src="~/js/sb-admin.min.js"></script>
 </body>
 </html>
