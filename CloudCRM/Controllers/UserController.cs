@@ -18,6 +18,7 @@ namespace CloudCRM.Controllers
         private SignInManager<ApplicationUser> signInManager;
         private readonly IStringLocalizer<UserController> _localizer;
         
+        //Depedencie injection
         public UserController(UserManager<ApplicationUser> userMgr,
                 SignInManager<ApplicationUser> signInMgr, IStringLocalizer<UserController> localizer)
         {

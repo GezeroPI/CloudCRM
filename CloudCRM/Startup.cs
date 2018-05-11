@@ -30,10 +30,11 @@ namespace CloudCRM
 
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //Connection to the Database
             services.AddDbContext<AppDbContext>(options =>
                 options.UseMySQL(Configuration["ConnectionStrings:MainDBConnection"]));
 
+            //Setup IdentityUser & IdentityRole from the custom overrided classes ApplicationUser/Role
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {
                 // Password settings
@@ -44,14 +45,15 @@ namespace CloudCRM
                 options.Password.RequireLowercase = true;
                 options.Password.RequiredUniqueChars = 2;
                 //// Lockout settings
-                //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
-                //options.Lockout.MaxFailedAccessAttempts = 4;
-                //options.Lockout.AllowedForNewUsers = true;
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 4;
+                options.Lockout.AllowedForNewUsers = true;
 
             })
                .AddEntityFrameworkStores<AppDbContext>()
                .AddDefaultTokenProviders();
 
+            //Setup cookie with some basic infos LoginPath, AccessDeniedPath e.t.c.
             services.ConfigureApplicationCookie(options =>
             {
                 options.AccessDeniedPath = "/User/AccessDenied";
@@ -64,13 +66,15 @@ namespace CloudCRM
                 options.SlidingExpiration = true;
             });
 
+            //Repository patterns here
             // services.AddTransient<IPerson, EFPersonRepository>();
 
+            //Localization configuration here for multilanguage app
             services.AddApplicationInsightsTelemetry(Configuration);
             services.AddLocalization(options => options.ResourcesPath = "Resources");
-
             services.Configure<RequestLocalizationOptions>(options =>
             {
+                //Languages that system support
                 var supportedCultures = new[]
                 {
                 new CultureInfo("en-US"),
@@ -109,6 +113,8 @@ namespace CloudCRM
 
                 routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
             });
+
+            //Seed data to create Admin user and role the very first time
             //SeedUserData.EnsurePopulated(app);
         }
     }
