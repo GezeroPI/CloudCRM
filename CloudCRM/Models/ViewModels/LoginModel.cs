@@ -9,10 +9,12 @@ namespace CloudCRM.Models.ViewModels
     public class LoginModel
     {
         [Required]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
 
         [Required]
         [UIHint("password")]
+        [Display(Name = "Password")]
         public string Password { get; set; }
 
         public string ReturnUrl { get; set; } = "/";

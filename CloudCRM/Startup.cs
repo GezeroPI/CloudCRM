@@ -34,7 +34,7 @@ namespace CloudCRM
             services.AddDbContext<AppDbContext>(options =>
                 options.UseMySQL(Configuration["ConnectionStrings:MainDBConnection"]));
 
-            //Setup IdentityUser & IdentityRole from the custom overrided classes ApplicationUser/Role
+            //Setup IdentityUser & IdentityRole from the custom overriden classes ApplicationUser/Role
             services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
             {
                 // Password settings
@@ -44,7 +44,7 @@ namespace CloudCRM
                 options.Password.RequireUppercase = true;
                 options.Password.RequireLowercase = true;
                 options.Password.RequiredUniqueChars = 2;
-                //// Lockout settings
+                // Lockout settings
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
                 options.Lockout.MaxFailedAccessAttempts = 4;
                 options.Lockout.AllowedForNewUsers = true;
@@ -78,7 +78,7 @@ namespace CloudCRM
                 var supportedCultures = new[]
                 {
                 new CultureInfo("en-US"),
-                new CultureInfo("gr-EL")
+                new CultureInfo("el-GR")
         };
 
                 options.DefaultRequestCulture = new RequestCulture(culture: "en-US", uiCulture: "en-US");

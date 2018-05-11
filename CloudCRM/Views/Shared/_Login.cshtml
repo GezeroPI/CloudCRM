@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject IViewLocalizer Localizer
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -13,14 +14,14 @@
     <div class="container">
         <img src="~/images/LogoCloudWhite.png" alt="Cloud CRM" style="display: block;margin:auto;margin-top:20px;" />
         <div class="card card-login mx-auto mt-5">
-            <div class="card-header">Login</div>
+            <div class="card-header">@Localizer["Login"]</div>
             <div class="card-body">
 
                 @RenderBody()
 
                 <div class="text-center">
-                    <a class="d-block small mt-3" asp-action="Register" asp-controller="User">Register an Account</a>
-                    <a class="d-block small" asp-action="ForgotPassword" asp-controller="User">Forgot Password?</a>
+                    <a class="d-block small mt-3" asp-action="Register" asp-controller="User">@Localizer["RegisterΑnAccount"]</a>
+                    <a class="d-block small" asp-action="ForgotPassword" asp-controller="User">@Localizer["ForgotPassword"]</a>
                 </div>
             </div>
         </div>

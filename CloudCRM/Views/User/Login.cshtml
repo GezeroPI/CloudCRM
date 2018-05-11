@@ -9,7 +9,7 @@
 <form asp-action="Login" asp-controller="User" method="post">
     <input type="hidden" asp-for="ReturnUrl" />
     <div class="form-group">
-        <label asp-for="UserName"></label>@Localizer["Login"]
+        <label asp-for="UserName"></label>
         <div><span asp-validation-for="UserName" class="text-danger"></span></div>
         <input asp-for="UserName" class="form-control" />
     </div>
@@ -18,6 +18,6 @@
         <div><span asp-validation-for="Password" class="text-danger"></span></div>
         <input asp-for="Password" class="form-control" />
     </div>
-    <button style="margin:auto;display:block" class="btn btn-success" type="submit">Log In</button>
+    <button style="margin:auto;display:block" class="btn btn-success" type="submit">@Localizer["LoginButton"]</button>
 </form>
 
