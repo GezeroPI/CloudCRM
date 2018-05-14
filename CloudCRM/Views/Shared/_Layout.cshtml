@@ -1133,22 +1133,30 @@
         </div>
         <environment names="Development">
             <script src="~/dist/main.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="~/js/sb-admin.min.js"></script>
+            <!-- Custom scripts for this page-->
+            <script src="~/js/sb-admin-datatables.min.js"></script>
+            <script src="~/js/sb-admin-charts.min.js"></script>
         </environment>
         <environment names="Staging,Production">
             <script src="~/dist/main.js" asp-append-version="true"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="~/js/sb-admin.min.js"></script>
+            <!-- Custom scripts for this page-->
+            <script src="~/js/sb-admin-datatables.min.js"></script>
+            <script src="~/js/sb-admin-charts.min.js"></script>
         </environment>
 
-        <!-- Custom scripts for all pages-->
-        <script src="~/js/sb-admin.min.js"></script>
-        <!-- Custom scripts for this page-->
-        <script src="~/js/sb-admin-datatables.min.js"></script>
-        <script src="~/js/sb-admin-charts.min.js"></script>
-
         <script language="javascript" type="text/javascript">
-            $(window).load(function () {
+            $(window).ready(function () {
                 $('#loading').hide();
             });
         </script>
+
+        
+
+
     </div>
 </body>
 </html>

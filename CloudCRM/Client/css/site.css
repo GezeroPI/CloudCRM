@@ -497,22 +497,10 @@ footer.sticky-footer {
         width: calc(100% - 55px);
     }
 }
-#loading {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    display: block;
-    opacity: 0.9;
-    background-color: #fff;
-    z-index: 99;
-    text-align: center;
-}
-
-#loading-image {
+.loader {
     position: absolute;
-    top: 100px;
-    left: 240px;
-    z-index: 100;
+    margin: 0 auto;
+    z-index: 9999;
+    top: 50px;
+    cursor: wait;
 }
