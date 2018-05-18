@@ -9,7 +9,7 @@
     <title>Cloud CRM - ProjectNow</title>
 
 </head>
-<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<body class="fixed-nav sticky-footer bg-dark" id="page-top" >
     <!-- Loading-->
     <div id="loading">
         <img id="loading-image" src="~/images/loading.gif" alt="Loading..." />
@@ -1131,32 +1131,31 @@
                 </div>
             </div>
         </div>
+
+
         <environment names="Development">
             <script src="~/dist/main.js"></script>
-            <!-- Custom scripts for all pages-->
-            <script src="~/js/sb-admin.min.js"></script>
+
             <!-- Custom scripts for this page-->
             <script src="~/js/sb-admin-datatables.min.js"></script>
             <script src="~/js/sb-admin-charts.min.js"></script>
         </environment>
         <environment names="Staging,Production">
             <script src="~/dist/main.js" asp-append-version="true"></script>
-            <!-- Custom scripts for all pages-->
-            <script src="~/js/sb-admin.min.js"></script>
+
             <!-- Custom scripts for this page-->
             <script src="~/js/sb-admin-datatables.min.js"></script>
             <script src="~/js/sb-admin-charts.min.js"></script>
         </environment>
-
         <script language="javascript" type="text/javascript">
-            $(window).ready(function () {
-                $('#loading').hide();
-            });
+            var loader = document.getElementById("#loading");
+            window.onload = function () {
+                alert("hello");
+                loader.style.display = "none";
+                alert("hello2");
+            }
+
         </script>
-
-        
-
-
     </div>
 </body>
 </html>
