@@ -1,5 +1,6 @@
 ﻿var path = require('path');
 var webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = function (env) {
 
@@ -20,11 +21,17 @@ module.exports = function (env) {
             extensions: ['.ts', '.tsx', '.js', '.jsx']
         },
         plugins: [
-            new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' })
+            new webpack.ProvidePlugin({ $: 'jquery', jQuery: 'jquery' }),
+            new ExtractTextPlugin("styles.css")
         ],
         module: {
             rules: [
-                { test: /\.css?$/, use: ['style-loader', 'css-loader'] },
+                {
+                    test: /\.css?$/, use: ExtractTextPlugin.extract({
+                        fallback: "style-loader",
+                        use: "css-loader"
+                    })
+                },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' },
                 { test: /\.(png|woff|woff2|eot|ttf|svg)(\?|$)/, use: 'url-loader?limit=100000' }
             ]
