@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CloudCRM.Models.ViewModels
 {
-    public class LoginModel
+    public class LoginViewModel
     {
         [Required]
         [Display(Name = "Username")]

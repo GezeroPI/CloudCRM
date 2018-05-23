@@ -30,13 +30,13 @@ namespace CloudCRM.Controllers
         [AllowAnonymous]
         public ViewResult Login()
         {
-                return View("Login", new LoginModel());
+                return View("Login", new LoginViewModel());
         }
 
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel loginModel)
+        public async Task<IActionResult> Login(LoginViewModel loginModel)
         {
             if (ModelState.IsValid)
             {

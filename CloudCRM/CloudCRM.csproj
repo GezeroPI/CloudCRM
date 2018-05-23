@@ -28,17 +28,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Resources\Models\ViewModels\LoginModel.en-US.Designer.cs">
+    <Compile Update="Resources\Models\ViewModels\LoginViewModel.en-US.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>LoginModel.en-US.resx</DependentUpon>
+      <DependentUpon>LoginViewModel.en-US.resx</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\Models\ViewModels\LoginModel.en-US.resx">
+    <EmbeddedResource Update="Resources\Models\ApplicationUser.el-GR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>LoginModel.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Models\ApplicationUser.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Models\ViewModels\LoginViewModel.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoginViewModel.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Views\Shared\_Login.el-GR.resx">
       <Generator>ResXFileCodeGenerator</Generator>
