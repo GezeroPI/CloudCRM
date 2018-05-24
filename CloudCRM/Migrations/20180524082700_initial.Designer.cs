@@ -10,8 +10,8 @@ using System;
 namespace CloudCRM.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20180523095113_company")]
-    partial class company
+    [Migration("20180524082700_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -55,6 +55,7 @@ namespace CloudCRM.Migrations
                         .IsConcurrencyToken();
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed");
@@ -75,7 +76,8 @@ namespace CloudCRM.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256);
 
-                    b.Property<string>("PasswordHash");
+                    b.Property<string>("PasswordHash")
+                        .IsRequired();
 
                     b.Property<string>("PhoneNumber");
 
@@ -86,6 +88,7 @@ namespace CloudCRM.Migrations
                     b.Property<bool>("TwoFactorEnabled");
 
                     b.Property<string>("UserName")
+                        .IsRequired()
                         .HasMaxLength(256);
 
                     b.HasKey("Id");

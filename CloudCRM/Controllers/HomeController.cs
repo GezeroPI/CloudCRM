@@ -31,9 +31,12 @@ namespace CloudCRM.Controllers
             return View();
         }
 
-        public IActionResult Profile()
+        public async Task<IActionResult> Profile()
         {
-            return View();
+            var userm = await userManager.GetUserAsync(HttpContext.User);
+            var user = new ApplicationUser();
+            user = userm;
+            return View(user);
         }
 
         public IActionResult Error()

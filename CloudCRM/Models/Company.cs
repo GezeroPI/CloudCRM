@@ -11,6 +11,6 @@ namespace CloudCRM.Models
         public string CompanyName { get; set; }
         public string Profession { get; set; }
         public int Vat { get; set; }
-        public string TaxOffice { get; set; } //DOY
+        public string TaxOffice { get; set; } //DOY 
     }
 }

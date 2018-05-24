@@ -12,6 +12,7 @@ namespace CloudCRM.Models
     {
         private const string adminUser = "Admin";
         private const string adminPassword = "Secret123$";
+        private const string adminEmail = "info@ndh-webstudio.com";
 
         public static async void EnsurePopulated(IApplicationBuilder app)
         {
@@ -39,7 +40,7 @@ namespace CloudCRM.Models
                 ApplicationUser user = await userManager.FindByNameAsync(adminUser);
                 if (user == null)
                 {
-                    user = new ApplicationUser("Admin");
+                    user = new ApplicationUser(adminUser, adminEmail);
                     var newuser = await userManager.CreateAsync(user, adminPassword);
                     if (newuser.Succeeded)
                     {

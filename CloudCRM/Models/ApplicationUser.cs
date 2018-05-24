@@ -17,6 +17,11 @@ namespace CloudCRM.Models
         {
         }
 
+        public ApplicationUser(string userName, string email) : base(userName)
+        {
+            Email = email;
+        }
+
         [Display(Name = "FirstName")]
         public string FirstName { get; set; }
         [Display(Name = "LastName")]
@@ -30,7 +35,7 @@ namespace CloudCRM.Models
         [UIHint("password")]
         [Display(Name = "Password")]
         public override string PasswordHash { get; set; }
-        [Required]
+        
         [UIHint("email")]
         [Display(Name = "Email")]
         public override string Email { get; set; }
@@ -40,5 +45,6 @@ namespace CloudCRM.Models
         [Required]
         [Display(Name = "Username")]
         public override string UserName { get; set; }
+        
     }
 }
