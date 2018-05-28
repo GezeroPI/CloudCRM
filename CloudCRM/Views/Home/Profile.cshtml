@@ -10,7 +10,14 @@
             <a href="#">@Localizer["Myprofile"]</a>
         </li>
     </ol>
-    <form>
+    @if (ViewBag.Message != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @Localizer["ChangesSaved"]
+        </div>
+
+    }
+    <form asp-action="Profile" asp-controller="Home" method="post">
         <div class="row">
 
             <div class="col-6 form-group">
@@ -20,7 +27,7 @@
                     <div><span asp-validation-for="UserName" class="text-danger"></span></div>
                     <input asp-for="UserName" class="form-control" readonly />
                 </div>
-                
+
                 <div class="form-group">
                     <label asp-for="Email"></label>
                     <div><span asp-validation-for="Email" aria-describedby="emailHelp" class="text-danger"></span></div>
@@ -51,7 +58,7 @@
                     <hr>
                     <p class="mb-0">@Localizer["passwordinfo"]</p>
                 </div>
-                <button class="btn btn-warning" > @Localizer["Changepass"]</button>
+                <button class="btn btn-warning"> @Localizer["Changepass"]</button>
             </div>
         </div>
 

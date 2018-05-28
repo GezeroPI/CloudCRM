@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@inject IViewLocalizer Localizer
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -9,7 +10,7 @@
     <title>Cloud CRM - ProjectNow</title>
     <link href="~/dist/styles.css" rel="stylesheet">
 </head>
-<body class="fixed-nav sticky-footer bg-dark" id="page-top" >
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
     <!-- Loading-->
     <div id="loading">
         <img id="loading-image" src="~/images/loading.gif" alt="Loading..." />
@@ -205,7 +206,7 @@
                 <li class="nav-item">
                     <form class="form-inline my-2 my-lg-0 mr-lg-2">
                         <div class="input-group">
-                            <input class="form-control" type="text" placeholder="Search for...">
+                            <input class="form-control" type="text" placeholder="@Localizer["Searchfor"]">
                             <span class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fa fa-search"></i>
@@ -217,13 +218,13 @@
                 <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-gear"></i> @User.Identity.Name
+                            <i class="fa fa-user-circle-o"></i> @User.Identity.Name
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" asp-controller="Home" asp-action="Profile">Profile</a>
-                            <a class="dropdown-item" href="#">Settings</a>
-                            <a class="dropdown-item" href="#">Help</a>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">Logout</a>
+                            <a class="dropdown-item" asp-controller="Home" asp-action="Profile">@Localizer["Profile"]</a>
+                            <a class="dropdown-item" href="#">@Localizer["Settings"]</a>
+                            <a class="dropdown-item" href="#">@Localizer["Help"]</a>
+                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#exampleModal">@Localizer["logout"]</a>
                         </div>
                     </div>
                 </li>
@@ -231,9 +232,9 @@
         </div>
     </nav>
     <div class="content-wrapper">
-        
-            @RenderBody()
-        
+
+        @RenderBody()
+
         <!-- /.container-fluid-->
         <!-- /.content-wrapper-->
         <footer class="sticky-footer">
@@ -252,15 +253,15 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">@Localizer["readytoleave"]</h5>
                         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">×</span>
                         </button>
                     </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-body">@Localizer["selectlogout"]</div>
                     <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" asp-action="Logout" asp-controller="User">Logout</a>
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">@Localizer["cancel"]</button>
+                        <a class="btn btn-primary" asp-action="Logout" asp-controller="User">@Localizer["logout"]</a>
                     </div>
                 </div>
             </div>
@@ -288,7 +289,7 @@
                 loader.style.display = "none";
 
             }
-            
+
         </script>
     </div>
 </body>

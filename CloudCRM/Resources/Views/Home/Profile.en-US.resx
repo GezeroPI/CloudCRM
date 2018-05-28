@@ -138,4 +138,7 @@
   <data name="usernameinfo" xml:space="preserve">
     <value>Your username is created on your sign up to the system and can not be changed. If for any reason there is a need to change it please contact us. (Go to Help and create a ticket)</value>
   </data>
+  <data name="ChangesSaved" xml:space="preserve">
+    <value>Changes have been saved!</value>
+  </data>
 </root>

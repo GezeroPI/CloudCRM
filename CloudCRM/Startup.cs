@@ -66,8 +66,14 @@ namespace CloudCRM
                 options.SlidingExpiration = true;
             });
 
-            //Repository patterns here
-            // services.AddTransient<IPerson, EFPersonRepository>();
+            //Transients here
+            services.AddTransient<IEmailSender, EmailSender>(serviceProvider =>
+            {
+                var SmtpUsername = Configuration["Data:ConnectionSMTP:Username"];
+                var SmtpPassword = Configuration["Data:ConnectionSMTP:Password"];
+                var SmtpOutgoingServer = Configuration["Data:ConnectionSMTP:OutgoingServer"];
+                return new EmailSender(SmtpUsername, SmtpPassword, SmtpOutgoingServer);
+            });
 
             //Localization configuration here for multilanguage app
             services.AddApplicationInsightsTelemetry(Configuration);

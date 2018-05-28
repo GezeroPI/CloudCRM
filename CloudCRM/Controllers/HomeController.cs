@@ -33,10 +33,32 @@ namespace CloudCRM.Controllers
 
         public async Task<IActionResult> Profile()
         {
-            var userm = await userManager.GetUserAsync(HttpContext.User);
-            var user = new ApplicationUser();
-            user = userm;
+            var user = await userManager.GetUserAsync(HttpContext.User);
+            
             return View(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Profile(ApplicationUser profile)
+        {
+            var user = await userManager.GetUserAsync(HttpContext.User);
+            user.Email = profile.Email;
+            user.FirstName = profile.FirstName;
+            user.LastName = profile.LastName;
+            user.PhoneNumber = profile.PhoneNumber;
+
+            var updatedUser = await userManager.UpdateAsync(user);
+            if (updatedUser.Succeeded)
+            {
+                ViewBag.Message = "saved";
+            }
+            return View(user);
+        }
+
+        public IActionResult PasswordChange()
+        {
+
+            return RedirectToAction(nameof(Profile));
         }
 
         public IActionResult Error()

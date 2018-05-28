@@ -117,28 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="emailhelp" xml:space="preserve">
-    <value>Ποτέ δεν θα μοιραστούμε το email σας με κάποιον άλλο.</value>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="Myprofile" xml:space="preserve">
-    <value>Το προφίλ μου</value>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
   </data>
-  <data name="Savechanges" xml:space="preserve">
-    <value>Αποθήκευση</value>
+  <data name="logout" xml:space="preserve">
+    <value>Logout</value>
   </data>
-  <data name="Changepass" xml:space="preserve">
-    <value>Αλλαγή Κωδικού</value>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
   </data>
-  <data name="passwordinfo" xml:space="preserve">
-    <value>Εάν επιθυμείτε αλλαγή κωδικού, μπορείτε να τον αλλάξετε απλά κάνοντας κλικ στο κουμπί αλλαγή κωδικού και στην συνεχεία θα λάβετε ένα mail με τον νέο σας κωδικό</value>
+  <data name="readytoleave" xml:space="preserve">
+    <value>Ready to Leave?</value>
   </data>
-  <data name="usefulinfotitle" xml:space="preserve">
-    <value>Xρήσιμες πληροφορίες</value>
+  <data name="Searchfor" xml:space="preserve">
+    <value>Search for...</value>
   </data>
-  <data name="usernameinfo" xml:space="preserve">
-    <value>Το όνομα χρήστη σας δημιουργείτε κατά την εγγραφή σας στο σύστημα και δεν υπάρχει η δυνατότητα αλλαγής. Εάν για οποιονδήποτε λόγο υπάρχει ανάγκη αλλαγής παρακαλώ επικοινωνήστε μαζί μας. (Πηγαίνετε βοήθια και δημιουργίστε αίτημα υποστήριξης)</value>
+  <data name="selectlogout" xml:space="preserve">
+    <value>Select "Logout" below if you are ready to end your current session.</value>
   </data>
-  <data name="ChangesSaved" xml:space="preserve">
-    <value>Οι αλλαγές αποθηκεύτηκαν!</value>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
 </root>
