@@ -12,11 +12,7 @@ namespace CloudCRM.Models
         private string _username { get; set; }
         private string _password { get; set; }
         private string _outserver { get; set; }
-
-        public EmailSender()
-        {
-        }
-
+        
         public EmailSender(string usernameSMTP, string passwordSMTP, string outgoingServer)
         {
             _username = usernameSMTP;

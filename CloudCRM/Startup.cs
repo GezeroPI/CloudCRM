@@ -66,14 +66,19 @@ namespace CloudCRM
                 options.SlidingExpiration = true;
             });
 
+            //SMTP Host 
+            var SmtpUsername = Configuration["ConnectionSMTP:Username"];
+            var SmtpPassword = Configuration["ConnectionSMTP:Password"];
+            var SmtpOutgoingServer = Configuration["ConnectionSMTP:OutgoingServer"];
             //Transients here
-            services.AddTransient<IEmailSender, EmailSender>(serviceProvider =>
-            {
-                var SmtpUsername = Configuration["Data:ConnectionSMTP:Username"];
-                var SmtpPassword = Configuration["Data:ConnectionSMTP:Password"];
-                var SmtpOutgoingServer = Configuration["Data:ConnectionSMTP:OutgoingServer"];
-                return new EmailSender(SmtpUsername, SmtpPassword, SmtpOutgoingServer);
-            });
+
+            services.AddScoped<IEmailSender, EmailSender>();
+            services.AddScoped<IEmailSender>(provider =>
+            new EmailSender(SmtpUsername, SmtpPassword, SmtpOutgoingServer));
+
+
+
+
 
             //Localization configuration here for multilanguage app
             services.AddApplicationInsightsTelemetry(Configuration);

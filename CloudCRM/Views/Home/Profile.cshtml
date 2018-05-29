@@ -10,12 +10,24 @@
             <a href="#">@Localizer["Myprofile"]</a>
         </li>
     </ol>
-    @if (ViewBag.Message != null)
+
+    @if (ViewBag.Message != null && ViewBag.Message == "ChangesSaved")
     {
         <div class="alert alert-success" role="alert">
             @Localizer["ChangesSaved"]
         </div>
-
+    }
+    @if (ViewBag.Message != null && ViewBag.Message == "passwordchanged")
+    {
+        <div class="alert alert-success" role="alert">
+        @Localizer["passwordchanged"]
+    </div>
+}
+    @if (ViewBag.Message != null && ViewBag.Message == "passwordNotchanged")
+    {
+        <div class="alert alert-danger" role="alert">
+            @Localizer["passwordNotchanged"]
+        </div>
     }
     <form asp-action="Profile" asp-controller="Home" method="post">
         <div class="row">
@@ -58,7 +70,7 @@
                     <hr>
                     <p class="mb-0">@Localizer["passwordinfo"]</p>
                 </div>
-                <button class="btn btn-warning"> @Localizer["Changepass"]</button>
+                <button class="btn btn-warning" asp-action="PasswordChange"> @Localizer["Changepass"]</button>
             </div>
         </div>
 
@@ -67,7 +79,7 @@
 
 
 
-</div>
+    </div>
 
 
 

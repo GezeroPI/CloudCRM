@@ -141,4 +141,10 @@
   <data name="ChangesSaved" xml:space="preserve">
     <value>Changes have been saved!</value>
   </data>
+  <data name="passwordchanged" xml:space="preserve">
+    <value>Password changed successfully. Your new password sent to your email.</value>
+  </data>
+  <data name="passwordNotchanged" xml:space="preserve">
+    <value>There was a problem changing the password</value>
+  </data>
 </root>

@@ -16,14 +16,16 @@ namespace CloudCRM.Controllers
         private UserManager<ApplicationUser> userManager;
         private SignInManager<ApplicationUser> signInManager;
         private readonly IStringLocalizer<HomeController> _localizer;
+        private IEmailSender _emailSender;
 
         //Depedency injection
         public HomeController(UserManager<ApplicationUser> userMgr,
-                SignInManager<ApplicationUser> signInMgr, IStringLocalizer<HomeController> localizer)
+                SignInManager<ApplicationUser> signInMgr, IStringLocalizer<HomeController> localizer, IEmailSender emailSender)
         {
             userManager = userMgr;
             signInManager = signInMgr;
             _localizer = localizer;
+            _emailSender = emailSender;
         }
 
         public IActionResult Index()
@@ -34,7 +36,7 @@ namespace CloudCRM.Controllers
         public async Task<IActionResult> Profile()
         {
             var user = await userManager.GetUserAsync(HttpContext.User);
-            
+
             return View(user);
         }
 
@@ -50,14 +52,35 @@ namespace CloudCRM.Controllers
             var updatedUser = await userManager.UpdateAsync(user);
             if (updatedUser.Succeeded)
             {
-                ViewBag.Message = "saved";
+                ViewBag.Message = "ChangesSaved";
             }
             return View(user);
         }
 
-        public IActionResult PasswordChange()
+        public async Task<IActionResult> PasswordChange()
         {
+            //Password Generator
+            var passwordLength = 12;
+            string allowedChars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ0123456789!@$?_-";
+            char[] chars = new char[passwordLength];
+            Random rd = new Random();
 
+            for (int i = 0; i < passwordLength; i++)
+            {
+                chars[i] = allowedChars[rd.Next(0, allowedChars.Length)];
+            }
+            //Changing user password
+            string password = new string(chars);
+            var user = await userManager.GetUserAsync(HttpContext.User);
+            var deletepass = await userManager.RemovePasswordAsync(user);
+            var createpass = await userManager.AddPasswordAsync(user, password);
+
+            var message = _localizer["yourNewPassword"]+password;
+            //Sending mail
+            var mailsucceed = _emailSender.SendMail(user.Email, _localizer["passwordChanged"], message);
+            //Logout the user
+            await signInManager.SignOutAsync();
+            
             return RedirectToAction(nameof(Profile));
         }
 
