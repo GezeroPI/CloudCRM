@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using CloudCRM.Models;
+using CloudCRM.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -70,12 +71,17 @@ namespace CloudCRM
             var SmtpUsername = Configuration["ConnectionSMTP:Username"];
             var SmtpPassword = Configuration["ConnectionSMTP:Password"];
             var SmtpOutgoingServer = Configuration["ConnectionSMTP:OutgoingServer"];
-            //Transients here
+            //SMS API Key
+            var SmsKey = Configuration["ConnectionSMS:Key"];
 
+            //Transients here
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IEmailSender>(provider =>
             new EmailSender(SmtpUsername, SmtpPassword, SmtpOutgoingServer));
 
+            services.AddScoped<ISmsSender, SmsSender>();
+            services.AddScoped<ISmsSender>(provider =>
+            new SmsSender(SmsKey));
 
 
 

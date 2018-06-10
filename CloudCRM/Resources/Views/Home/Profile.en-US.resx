@@ -133,7 +133,7 @@
     <value>If you want to change your password, you can simply change it by clicking the change password button and then you will receive a mail with your new password</value>
   </data>
   <data name="usefulinfotitle" xml:space="preserve">
-    <value>Useful informations!</value>
+    <value>Useful information!</value>
   </data>
   <data name="usernameinfo" xml:space="preserve">
     <value>Your username is created on your sign up to the system and can not be changed. If for any reason there is a need to change it please contact us. (Go to Help and create a ticket)</value>

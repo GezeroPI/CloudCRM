@@ -45,6 +45,8 @@ namespace CloudCRM.Models
         [Required]
         [Display(Name = "Username")]
         public override string UserName { get; set; }
-        
+        [Display(Name = "Two Factor Authentication")]
+        [UIHint("checkbox")]
+        public override bool TwoFactorEnabled { get; set; }
     }
 }

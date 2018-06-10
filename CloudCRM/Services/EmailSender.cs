@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
+
 namespace CloudCRM.Models
 {
     public class EmailSender : IEmailSender
@@ -12,14 +13,14 @@ namespace CloudCRM.Models
         private string _username { get; set; }
         private string _password { get; set; }
         private string _outserver { get; set; }
-        
+
         public EmailSender(string usernameSMTP, string passwordSMTP, string outgoingServer)
         {
             _username = usernameSMTP;
             _password = passwordSMTP;
             _outserver = outgoingServer;
         }
-        
+
         public bool SendMail(string emailTo, string subject, string message)
         {
             try
@@ -43,5 +44,6 @@ namespace CloudCRM.Models
                 return false;
             }
         }
+        
     }
 }
