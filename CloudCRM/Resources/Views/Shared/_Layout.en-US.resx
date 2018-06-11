@@ -120,6 +120,12 @@
   <data name="cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
+  <data name="readytoleave" xml:space="preserve">
+    <value>Ready to Leave?</value>
+  </data>
+  <data name="selectlogout" xml:space="preserve">
+    <value>Select "Logout" below if you are ready to end your current session.</value>
+  </data>
   <data name="Help" xml:space="preserve">
     <value>Help</value>
   </data>
@@ -129,16 +135,31 @@
   <data name="Profile" xml:space="preserve">
     <value>Profile</value>
   </data>
-  <data name="readytoleave" xml:space="preserve">
-    <value>Ready to Leave?</value>
-  </data>
   <data name="Searchfor" xml:space="preserve">
     <value>Search for...</value>
   </data>
-  <data name="selectlogout" xml:space="preserve">
-    <value>Select "Logout" below if you are ready to end your current session.</value>
-  </data>
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="Clients" xml:space="preserve">
+    <value>Clients</value>
+  </data>
+  <data name="Collaborators" xml:space="preserve">
+    <value>Collaborators</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+  <data name="Invoicing" xml:space="preserve">
+    <value>Invoicing</value>
+  </data>
+  <data name="Tickets" xml:space="preserve">
+    <value>Tickets</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Users</value>
   </data>
 </root>

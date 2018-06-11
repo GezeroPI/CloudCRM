@@ -63,5 +63,11 @@ namespace CloudCRM.Controllers
             await signInManager.SignOutAsync();
             return Redirect(returnUrl);
         }
+
+        public IActionResult Collaborators()
+        {
+            
+            return View();
+        }
     }
 }

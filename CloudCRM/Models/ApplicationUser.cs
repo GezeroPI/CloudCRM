@@ -29,6 +29,7 @@ namespace CloudCRM.Models
         [Display(Name = "Language")]
         public string Language { get; set; }
         public Company Company { get; set; }
+        public ApplicationUser Collaborator { get; set; }
 
         //overrides
         [Required]

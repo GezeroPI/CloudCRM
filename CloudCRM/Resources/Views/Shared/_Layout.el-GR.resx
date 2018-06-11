@@ -120,6 +120,12 @@
   <data name="cancel" xml:space="preserve">
     <value>Άκυρο</value>
   </data>
+  <data name="readytoleave" xml:space="preserve">
+    <value>Έτοιμος/η για αποσύνδεση;</value>
+  </data>
+  <data name="selectlogout" xml:space="preserve">
+    <value>Επιλέξτε "Αποσύνδεση" παρακάτω εάν είστε έτοιμοι να τερματίσετε την τρέχουσα συνεδρία σας.</value>
+  </data>
   <data name="Help" xml:space="preserve">
     <value>Βοήθεια</value>
   </data>
@@ -129,16 +135,31 @@
   <data name="Profile" xml:space="preserve">
     <value>Προφίλ</value>
   </data>
-  <data name="readytoleave" xml:space="preserve">
-    <value>Έτοιμος/η για αποσύνδεση;</value>
-  </data>
   <data name="Searchfor" xml:space="preserve">
     <value>Αναζήτηση ...</value>
   </data>
-  <data name="selectlogout" xml:space="preserve">
-    <value>Επιλέξτε "Αποσύνδεση" παρακάτω εάν είστε έτοιμοι να τερματίσετε την τρέχουσα συνεδρία σας.</value>
-  </data>
   <data name="Settings" xml:space="preserve">
     <value>Ρυθμίσεις</value>
+  </data>
+  <data name="Clients" xml:space="preserve">
+    <value>Πελάτες</value>
+  </data>
+  <data name="Collaborators" xml:space="preserve">
+    <value>Συνεργάτες</value>
+  </data>
+  <data name="Company" xml:space="preserve">
+    <value>Εταιρία</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Πίνακα ελέγχου</value>
+  </data>
+  <data name="Invoicing" xml:space="preserve">
+    <value>Τιμολόγηση</value>
+  </data>
+  <data name="Tickets" xml:space="preserve">
+    <value>Αιτήματα Υποστήριξης</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Χρήστες</value>
   </data>
 </root>
