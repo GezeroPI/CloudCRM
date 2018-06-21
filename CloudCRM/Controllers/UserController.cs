@@ -15,6 +15,7 @@ namespace CloudCRM.Controllers
     public class UserController : Controller
     {
         private UserManager<ApplicationUser> userManager;
+        private RoleManager<ApplicationRole> roleManager;
         private SignInManager<ApplicationUser> signInManager;
         private readonly IStringLocalizer<UserController> _localizer;
         
@@ -64,10 +65,16 @@ namespace CloudCRM.Controllers
             return Redirect(returnUrl);
         }
 
-        public IActionResult Collaborators()
+        public async Task<IActionResult> Collaborators()
         {
+            //searching and returning users with the same role and collaborator id of the user who call this action
+            var user = await userManager.GetUserAsync(HttpContext.User);
+            var role = await userManager.GetRolesAsync(user);
+            var usersWithSameRole = await userManager.GetUsersInRoleAsync(string.Join(",", role.ToArray()));
+            List<ApplicationUser> collaborators = usersWithSameRole.Where(c => c.Collaborator.Id == user.Collaborator.Id).ToList();
+            collaborators.Remove(user);
             
-            return View();
+            return View(collaborators);
         }
     }
 }
