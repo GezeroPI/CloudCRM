@@ -10,15 +10,38 @@ using Microsoft.Extensions.Localization;
 
 namespace CloudCRM.Controllers
 {
+    /// <summary>
+    /// This is the home controller and here are all actions needed for main layout
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
     [Authorize]
     public class HomeController : Controller
     {
+        /// <summary>
+        /// The user manager
+        /// </summary>
         private UserManager<ApplicationUser> userManager;
+        /// <summary>
+        /// The sign in manager
+        /// </summary>
         private SignInManager<ApplicationUser> signInManager;
+        /// <summary>
+        /// The localizer
+        /// </summary>
         private readonly IStringLocalizer<HomeController> _localizer;
+        /// <summary>
+        /// The email sender
+        /// </summary>
         private IEmailSender _emailSender;
 
-        //Depedency injection
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeController"/> class.
+        /// </summary>
+        /// <param name="userMgr">The user MGR.</param>
+        /// <param name="signInMgr">The sign in MGR.</param>
+        /// <param name="localizer">The localizer.</param>
+        /// <param name="emailSender">The email sender.</param>
         public HomeController(UserManager<ApplicationUser> userMgr,
                 SignInManager<ApplicationUser> signInMgr, IStringLocalizer<HomeController> localizer, IEmailSender emailSender)
         {
@@ -28,11 +51,19 @@ namespace CloudCRM.Controllers
             _emailSender = emailSender;
         }
 
+        /// <summary>
+        /// Indexes this instance.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Profiles this instance.
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Profile()
         {
             var user = await userManager.GetUserAsync(HttpContext.User);
@@ -40,6 +71,11 @@ namespace CloudCRM.Controllers
             return View(user);
         }
 
+        /// <summary>
+        /// Profiles the specified profile.
+        /// </summary>
+        /// <param name="profile">The profile.</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Profile(ApplicationUser profile)
         {
@@ -57,6 +93,10 @@ namespace CloudCRM.Controllers
             return View(user);
         }
 
+        /// <summary>
+        /// Passwords the change.
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> PasswordChange()
         {
             //Password Generator
@@ -84,6 +124,10 @@ namespace CloudCRM.Controllers
             return RedirectToAction(nameof(Profile));
         }
 
+        /// <summary>
+        /// Errors this instance.
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Error()
         {
             return View();

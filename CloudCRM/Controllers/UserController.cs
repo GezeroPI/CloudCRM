@@ -11,15 +11,37 @@ using Microsoft.Extensions.Localization;
 
 namespace CloudCRM.Controllers
 {
+    /// <summary>
+    /// This is the user controller with all action needed
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Mvc.Controller" />
     [Authorize]
     public class UserController : Controller
     {
+        /// <summary>
+        /// The user manager
+        /// </summary>
         private UserManager<ApplicationUser> userManager;
+        /// <summary>
+        /// The role manager
+        /// </summary>
         private RoleManager<ApplicationRole> roleManager;
+        /// <summary>
+        /// The sign in manager
+        /// </summary>
         private SignInManager<ApplicationUser> signInManager;
+        /// <summary>
+        /// The localizer
+        /// </summary>
         private readonly IStringLocalizer<UserController> _localizer;
-        
+
         //Depedency injection
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserController"/> class.
+        /// </summary>
+        /// <param name="userMgr">The user MGR.</param>
+        /// <param name="signInMgr">The sign in MGR.</param>
+        /// <param name="localizer">The localizer.</param>
         public UserController(UserManager<ApplicationUser> userMgr,
                 SignInManager<ApplicationUser> signInMgr, IStringLocalizer<UserController> localizer)
         {
@@ -28,12 +50,21 @@ namespace CloudCRM.Controllers
             _localizer = localizer;
         }
 
+        /// <summary>
+        /// Logins this instance.
+        /// </summary>
+        /// <returns></returns>
         [AllowAnonymous]
         public ViewResult Login()
         {
                 return View("Login", new LoginViewModel());
         }
 
+        /// <summary>
+        /// Logins the specified login model.
+        /// </summary>
+        /// <param name="loginModel">The login model.</param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -59,12 +90,21 @@ namespace CloudCRM.Controllers
 
         }
 
+        /// <summary>
+        /// Logouts the specified return URL.
+        /// </summary>
+        /// <param name="returnUrl">The return URL.</param>
+        /// <returns></returns>
         public async Task<RedirectResult> Logout(string returnUrl = "/")
         {
             await signInManager.SignOutAsync();
             return Redirect(returnUrl);
         }
 
+        /// <summary>
+        /// Collaboratorses this instance.
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Collaborators()
         {
             //searching and returning users with the same role and collaborator id of the user who call this action
