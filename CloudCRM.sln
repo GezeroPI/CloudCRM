@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CloudCRM", "CloudCRM\CloudCRM.csproj", "{76E6CFAF-32F3-45B7-9D19-167E1724599A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cloud.CRM.Web", "Cloud.CRM.Web\Cloud.CRM.Web.csproj", "{76E6CFAF-32F3-45B7-9D19-167E1724599A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSenderTests", "EmailSenderTests\EmailSenderTests.csproj", "{FA485AE9-3387-4416-91F5-F824018739D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EmailSenderTests", "EmailSenderTests\EmailSenderTests.csproj", "{FA485AE9-3387-4416-91F5-F824018739D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coud.CRM.Core", "Coud.CRM.Core\Coud.CRM.Core.csproj", "{C9CC2A25-48A1-4925-AEF9-DABD8F0649E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cloud.CRM.Infrastructure", "Cloud.CRM.Infrastructure\Cloud.CRM.Infrastructure.csproj", "{6C32E19B-7AA5-4BC9-A995-C227C731CD42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{FA485AE9-3387-4416-91F5-F824018739D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA485AE9-3387-4416-91F5-F824018739D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA485AE9-3387-4416-91F5-F824018739D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9CC2A25-48A1-4925-AEF9-DABD8F0649E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9CC2A25-48A1-4925-AEF9-DABD8F0649E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9CC2A25-48A1-4925-AEF9-DABD8F0649E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9CC2A25-48A1-4925-AEF9-DABD8F0649E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C32E19B-7AA5-4BC9-A995-C227C731CD42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C32E19B-7AA5-4BC9-A995-C227C731CD42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C32E19B-7AA5-4BC9-A995-C227C731CD42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C32E19B-7AA5-4BC9-A995-C227C731CD42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

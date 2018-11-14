@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CloudCRM\CloudCRM.csproj" />
+    <ProjectReference Include="..\Cloud.CRM.Web\Cloud.CRM.Web.csproj" />
   </ItemGroup>
 
 </Project>

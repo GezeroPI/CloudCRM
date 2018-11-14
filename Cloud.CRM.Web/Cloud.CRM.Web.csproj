@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\dist\js\**" />
+    <Content Remove="wwwroot\dist\js\**" />
+    <EmbeddedResource Remove="wwwroot\dist\js\**" />
+    <None Remove="wwwroot\dist\js\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="src\js\sb-admin.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.11" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore.Design" Version="8.0.11" />
+    <PackageReference Include="Twilio" Version="5.13.2" />
+    <PackageReference Include="Twilio.AspNet.Core" Version="5.9.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\dist\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resources\Models\ViewModels\LoginViewModel.en-US.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LoginViewModel.en-US.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\Models\ApplicationUser.el-GR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Models\ApplicationUser.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Models\ViewModels\LoginViewModel.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LoginViewModel.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Shared\_Login.el-GR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Views\Shared\_Login.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
